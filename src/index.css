@@ -1,0 +1,16 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item-selected {
+  color:		rgb(255, 255, 255)	 !important; 
+  border-bottom-color:		rgb(255, 255, 255)	 !important; 
+  font-weight: 600;
+}
+
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item-selected {
+  background-color: transparent !important;
+}
+
