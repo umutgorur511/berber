@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Drawer, Button } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
 import HomePage from "./HomePage";
 import AboutUs from "./AboutUs";
 import Gallery from "./Gallery";
@@ -28,6 +29,7 @@ const PAGE_CONFIG = {
 
 const AppLayout = () => {
   const [activePageKey, setActivePageKey] = useState("home");
+  const [drawerVisible, setDrawerVisible] = useState(false);
 
   const menuItems = useMemo(
     () =>
@@ -45,6 +47,7 @@ const AppLayout = () => {
 
   const handleMenuClick = ({ key }) => {
     setActivePageKey(key);
+    setDrawerVisible(false);
   };
 
   return (
@@ -62,37 +65,51 @@ const AppLayout = () => {
             position: "relative",
           }}
         >
+          <Button
+            type="text"
+            icon={<MenuOutlined style={{ color: "white", fontSize: 22 }} />}
+            onClick={() => setDrawerVisible(true)}
+            style={{ marginRight: 16 }}
+          />
+
           <div
+            onClick={() => setActivePageKey("home")}
             style={{
               color: "white",
               fontSize: 24,
               fontWeight: 600,
               userSelect: "none",
-              position: "absolute",
-              left: 24,
-              top: "50%",
-              transform: "translateY(-50%)",
               whiteSpace: "nowrap",
+              cursor: "pointer",
             }}
           >
             Berber Ali Görür
           </div>
 
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            selectedKeys={[activePageKey]}
-            onClick={handleMenuClick}
-            style={{
-              margin: "0 auto",
-              backgroundColor: "transparent",
-              border: "none",
-              fontSize: 16,
-              minWidth: 300,
-              justifyContent: "center",
+          <Drawer
+            placement="left"
+            onClose={() => setDrawerVisible(false)}
+            open={drawerVisible}
+            bodyStyle={{ backgroundColor: "rgb(3, 7, 17)", padding: 0 }}
+            headerStyle={{
+              backgroundColor: "rgb(3, 7, 17)",
+              color: "white",
+              borderBottom: "1px solid rgba(255,255,255,0.1)",
             }}
-            items={menuItems}
-          />
+          >
+            <Menu
+              mode="vertical"
+              selectedKeys={[activePageKey]}
+              onClick={handleMenuClick}
+              items={menuItems}
+              style={{
+                backgroundColor: "rgb(3, 7, 17)",
+                color: "white",
+                borderRight: 0,
+              }}
+              theme="dark"
+            />
+          </Drawer>
         </Header>
 
         <Content style={{ padding: 0 }}>

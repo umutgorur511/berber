@@ -1,13 +1,11 @@
-// src/HomePage.js
 import React, { useContext } from "react";
 import { Button } from "antd";
 import { FaArrowRight } from "react-icons/fa";
-import photo from "./assets/bg.jpg";
-import { PageContext } from "./PageContext"; // EKLENDİ
+import { PageContext } from "./PageContext"; 
 import "./index.css";
 
 const HomePage = () => {
-  const { setActivePageKey } = useContext(PageContext); // CONTEXT'TEN ALDIK
+  const { setActivePageKey } = useContext(PageContext); 
 
   return (
     <div
@@ -26,7 +24,7 @@ const HomePage = () => {
       <div style={{ maxWidth: 500 }}>
         <h2 style={{ marginBottom: 30, fontSize: 35 }}>Tekrardan Hoşgeldin,</h2>
         <Button
-          onClick={() => setActivePageKey("about")} // TIKLANINCA "about" SAYFASINA GEÇ
+          onClick={() => setActivePageKey("about")} 
           type="primary"
           size="large"
           style={{
@@ -39,19 +37,6 @@ const HomePage = () => {
         >
           Hemen Randevu Al <FaArrowRight style={{ marginLeft: 8 }} />
         </Button>
-      </div>
-
-      <div style={{ maxWidth: 600, flexShrink: 0 }}>
-        <img
-          src={photo}
-          alt="Berber Görseli"
-          style={{
-            width: "100%",
-            height: "auto",
-            borderRadius: 8,
-            boxShadow: "0 4px 15px rgba(0,0,0,0.5)",
-          }}
-        />
       </div>
     </div>
   );
