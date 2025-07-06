@@ -90,11 +90,13 @@ const AppLayout = () => {
             placement="left"
             onClose={() => setDrawerVisible(false)}
             open={drawerVisible}
-            bodyStyle={{ backgroundColor: "rgb(3, 7, 17)", padding: 0 }}
-            headerStyle={{
-              backgroundColor: "rgb(3, 7, 17)",
-              color: "white",
-              borderBottom: "1px solid rgba(255,255,255,0.1)",
+            styles={{
+              body: { backgroundColor: "rgb(3, 7, 17)", padding: 0 },
+              header: {
+                backgroundColor: "rgb(3, 7, 17)",
+                color: "white",
+                borderBottom: "1px solid rgba(255,255,255,0.1)",
+              },
             }}
           >
             <Menu

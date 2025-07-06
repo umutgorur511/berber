@@ -19,6 +19,7 @@ const HomePage = () => {
         padding: "0 40px",
         color: "white",
         boxSizing: "border-box",
+        position: "relative", 
       }}
     >
       <div style={{ maxWidth: 500 }}>
